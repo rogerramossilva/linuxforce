@@ -45,7 +45,6 @@ function arqslist(){
     
     cd $1
     echo -e "\n$1 in $DATA\n" >> $ARQ
-
     for YEAR in $DIR
         do
             find $YEAR/* -noleaf -type d -atime +365 -maxdepth 1 -exec ls -d >> $ARQ {} \; 2>> /dev/null
@@ -60,7 +59,6 @@ echo 'Backups with more than 365 days should be excluded.' >> $ARQ
 echo 'Backups with more than 7 days, except from day 01, should be excluded.' >> $ARQ
 
 arqslist $BKP
-
 I=`wc -l $ARQ | cut -d' ' -f1`
 
 if [ $I -gt 6 ]

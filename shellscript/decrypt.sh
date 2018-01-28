@@ -8,7 +8,6 @@
 # , é um exemplo de utilizacão para a estrutura condicional (if) e um loop
 # (for) em aulas de Shell Script.
 
-
 LIST=`awk -F: '$3 >= 1000 || $3 == 0 {print $1}' /etc/passwd | egrep -v 'nobody|nogroup'`
 WORD='/srv/asf/security/john/run/password.lst'
 JOHN='/srv/asf/security/john/run/john'

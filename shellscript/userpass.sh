@@ -1,8 +1,8 @@
 #!/bin/bash
 
-USER=`getent passwd | awk -F: '$3 >= 1000 || $3 == 0 {print $1}' | egrep -v 'nobody|nogroup'`
-
 clear
+
+USER=`getent passwd | awk -F: '$3 >= 1000 || $3 == 0 {print $1}' | egrep -v 'nobody|nogroup'`
 
 for I in $USER
     do

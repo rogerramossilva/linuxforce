@@ -13,7 +13,6 @@
 clear
 
 SPAWN='/tmp/NET'
-
 echo -e "\nInput the network: Ex.: 192.168.1.0/24"
 read ADDR
 

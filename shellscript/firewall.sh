@@ -8,10 +8,32 @@
 # deve ser usado somente em nodes internos e não deve ser usado em um node gateway
 # devido as politicas ACCEPT não serem seguras para nodes expostos a internet.
 
+# LAN
+GTW=192.168.1.1
+DTC=192.168.1.20
+STG=192.168.1.30
+CLI=192.168.1.100
+INT=192.168.1.10
+LAN=192.168.1.0/24
+
+# LINK
+FWL1=200.50.100.10
+FWL2=200.50.100.20
+FWL3=200.50.100.30
+EXT=200.50.100.100
+LNK=200.50.100.0/24
+
+# Internet
+DIP=10.0.2.15
+WAN=10.0.2.0/24
+
 case $1 in
+
     stop)
+
 	# Disable packet forwarding
 	echo 0 > /proc/sys/net/ipv4/ip_forward
+
 	# Setting ACCEPT policies for filter chains
 	iptables -P INPUT ACCEPT
 	iptables -P OUTPUT ACCEPT
@@ -19,12 +41,16 @@ case $1 in
 	# Flush all chains 
 	iptables -t nat -F
 	iptables -t filter -F
+
 	# Firewall briefing status
-        echo 'iptables.sh stop...  [ OK ]'
+        echo 'firewall.sh stop...  [ OK ]'
     ;;
+
     start)
+
 	# Enable packet forwarding
 	echo 1 > /proc/sys/net/ipv4/ip_forward
+
 	# Setting default DROP policies..."
 	iptables -P INPUT DROP
 	iptables -P OUTPUT DROP
@@ -32,6 +58,7 @@ case $1 in
 	# Flush all chains 
 	iptables -t nat -F
 	iptables -t filter -F
+
         # Clean drop-it chain, if exists
         if [ -n "`iptables -L | grep drop-it`" ]
 	    then
@@ -47,6 +74,7 @@ case $1 in
 	    then
 	         iptables -F ndrop-it
 	fi
+
 	# Clean users chains
 	iptables -X
 	# Clean all iptables counters
@@ -68,9 +96,11 @@ case $1 in
 	iptables -N ndrop-it
 	#iptables -A ndrop-it -j LOG --log-level info
 	iptables -A ndrop-it -j REJECT
+	
 	#####################
         ### INPUT SESSION ###
         #####################
+	
 	# Accept packets only valid networks for external interface
 	iptables -A INPUT -i enp0s3 -s 192.168.0.0/16 -j drop-it
 	iptables -A INPUT -i enp0s3 -s 172.16.0.0/12 -j drop-it
@@ -84,9 +114,11 @@ case $1 in
 	iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 	# Uncomment for enable log
 	#iptables -A INPUT -j drop-it
+
 	######################
 	### OUTPUT SESSION ###
 	######################
+
 	# Send packets only valid networks
 	iptables -A OUTPUT -o enp0s3 -d 192.168.0.0/16 -j drop-it
 	iptables -A OUTPUT -o enp0s3 -d 172.16.0.0/12 -j drop-it
@@ -103,16 +135,18 @@ case $1 in
 	iptables -A OUTPUT -p tcp -o enp0s3 -s $DIP -m multiport --dports 80,443 -j ACCEPT
 	# Uncomment for enable log
 	#iptables -A OUTPUT -j drop-it
+
 	###############
 	### FORWARD ###
 	###############
+
 	# Enable ICMP FORWARD
 	iptables -A FORWARD -p icmp -s $LAN --icmp-type echo-request -o enp0s3 -j ACCEPT
 	iptables -A FORWARD -p icmp -s $LAN --icmp-type echo-request -o enp0s9 -j ACCEPT
 	# Enable connections are state established and related
 	iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
 	# Enable FORWARD for HTTP e HTTPS
-	for REP in $INT1 $DTC $STG $CLI ; do 
+	for REP in $INT $DTC $STG $CLI ; do 
 	iptables -A FORWARD -p tcp -s $REP -o enp0s3 -m multiport --dports 80,443 -j ACCEPT
 	iptables -A FORWARD -p tcp -s $REP -o enp0s9 -m multiport --dports 80,443 -j ACCEPT
 	done
@@ -124,9 +158,11 @@ case $1 in
 	iptables -A FORWARD -p tcp -s $LAN -o enp0s3 -m multiport --dports 20,21 -j ACCEPT 
 	# Uncomment for enable log
 	#iptables -A FORWARD -j drop-it
+
 	###################
 	### NAT SESSION ###
 	###################
+
 	# Enable internet access for LAN
 	iptables -t nat -A POSTROUTING -s $LAN -o enp0s3 -j MASQUERADE
 	# Firewall briefing status
