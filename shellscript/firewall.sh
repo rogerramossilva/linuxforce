@@ -29,7 +29,7 @@ WAN=10.0.2.0/24
 
 case $1 in
     stop)
-
+    
 	# Disable packet forwarding
 	echo 0 > /proc/sys/net/ipv4/ip_forward
 
@@ -43,6 +43,7 @@ case $1 in
 
 	# Firewall briefing status
         echo 'firewall.sh stop...  [ OK ]'
+    
     ;;
 
     start)
@@ -170,12 +171,10 @@ case $1 in
     
     ;;
     
-    restart)
-        
+    restart)    
         $0 stop
 	sleep 0.5
 	$0 start
-
     ;;
 
     *)
