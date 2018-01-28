@@ -28,7 +28,6 @@ DIP=10.0.2.15
 WAN=10.0.2.0/24
 
 case $1 in
-
     stop)
 
 	# Disable packet forwarding
@@ -168,12 +167,17 @@ case $1 in
 	# Firewall briefing status
 	echo 'firewall.sh start... [ OK ]'
 	service iptables save
+    
     ;;
+    
     restart)
+        
         $0 stop
 	sleep 0.5
 	$0 start
+
     ;;
+
     *)
         echo 'USE: iptables.sh start|stop|restart'
     ;;
