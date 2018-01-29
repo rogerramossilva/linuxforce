@@ -1,4 +1,4 @@
-# Linux Administrator Course
+# Linux Administrator and Linux Engineer Courses
 
-Files used in the Linux Administrator course.<br>
-Arquivos utilizados nas aulas do curso Linux Administrator.
+Files used in the Linux Administrator and Linux Engineer courses.<br>
+Arquivos utilizados nas aulas dos cursos Linux Administrator e Linux Engineer.
