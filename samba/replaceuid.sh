@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variavel com listagem de usuarios inseridos no Samba
-LUSER="$(samba-tool user list | egrep -v 'Administrator|Guest|krbtgt|dns-fileserver')"
+LUSER="$(samba-tool user list | egrep -v 'Administrator|Guest|krbtgt')"
 
 for LSUSER in $LUSER
     do 

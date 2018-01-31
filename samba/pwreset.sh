@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LISTA="$(samba-tool user list | egrep -v 'Administrator|Guest|krbtgt|dns-fileserver')"
+LISTA="$(samba-tool user list | egrep -v 'Administrator|Guest|krbtgt')"
 
 for user in $LISTA
     do
