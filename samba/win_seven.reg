@@ -1,0 +1,46 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\LanmanWorkstation\Parameters]
+"ServiceDll"=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,\
+  00,74,00,25,00,5c,00,53,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,00,\
+  77,00,6b,00,73,00,73,00,76,00,63,00,2e,00,64,00,6c,00,6c,00,00,00
+"ServiceDllUnloadOnStop"=dword:00000001
+"EnablePlainTextPassword"=dword:00000000
+"EnableSecuritySignature"=dword:00000001
+"RequireSecuritySignature"=dword:00000000
+"OtherDomains"=hex(7):00,00
+"DNSNameResolutionRequired"=dword:00000000
+"DomainCompatibilityMode"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\Netlogon\Parameters]
+"Update"="no"
+"DisablePasswordChange"=dword:00000000
+"MaximumPasswordAge"=dword:0000001e
+"RequireSignOrSeal"=dword:00000001
+"RequireStrongKey"=dword:00000001
+"SealSecureChannel"=dword:00000001
+"SignSecureChannel"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa]
+"auditbaseobjects"=dword:00000000
+"auditbasedirectories"=dword:00000000
+"crashonauditfail"=dword:00000000
+"fullprivilegeauditing"=hex:00
+"LimitBlankPasswordUse"=dword:00000001
+"NoLmHash"=dword:00000001
+"Notification Packages"=hex(7):73,00,63,00,65,00,63,00,6c,00,69,00,00,00,00,00
+"Security Packages"=hex(7):6b,00,65,00,72,00,62,00,65,00,72,00,6f,00,73,00,00,\
+  00,6d,00,73,00,76,00,31,00,5f,00,30,00,00,00,73,00,63,00,68,00,61,00,6e,00,\
+  6e,00,65,00,6c,00,00,00,77,00,64,00,69,00,67,00,65,00,73,00,74,00,00,00,74,\
+  00,73,00,70,00,6b,00,67,00,00,00,70,00,6b,00,75,00,32,00,75,00,00,00,00,00
+"Authentication Packages"=hex(7):6d,00,73,00,76,00,31,00,5f,00,30,00,00,00,00,\
+  00
+"LsaPid"=dword:000001dc
+"SecureBoot"=dword:00000001
+"ProductType"=dword:00000001
+"disabledomaincreds"=dword:00000000
+"everyoneincludesanonymous"=dword:00000000
+"forceguest"=dword:00000000
+"restrictanonymous"=dword:00000000
+"restrictanonymoussam"=dword:00000001
+"LmCompatibilityLevel"=dword:00000001
