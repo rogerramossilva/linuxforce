@@ -1,7 +1,7 @@
 On Error Resume Next
 set objNetwork= CreateObject("WScript.Network")
-objNetwork.MapNetworkDrive "P:", "\\asf\public"
-objNetwork.MapNetworkDrive "N:", "\\asf\lixeiras"
+objNetwork.MapNetworkDrive "P:", "\\ad\public"
+objNetwork.MapNetworkDrive "N:", "\\ad\lixeiras"
 
 strDom = objNetwork.UserDomain
 strUser = objNetwork.UserName
@@ -11,21 +11,21 @@ For Each objGroup In objUser.Groups
   Select Case ucase(objGroup.Name)
     Case "OWNER"
       objNetwork.RemoveNetworkDrive "G","true"
-      objNetwork.MapNetworkDrive "G:","\\asf\owner","true"
+      objNetwork.MapNetworkDrive "G:","\\ad\owner","true"
 	Case "PUBLIC"
       objNetwork.RemoveNetworkDrive "M","true"
-      objNetwork.MapNetworkDrive "M:","\\asf\public","true"
+      objNetwork.MapNetworkDrive "M:","\\ad\public","true"
 	Case "SECURITY"
       objNetwork.RemoveNetworkDrive "I","true"
-      objNetwork.MapNetworkDrive "I:","\\asf\security","true"
+      objNetwork.MapNetworkDrive "I:","\\ad\security","true"
 	Case "INFRASTRUCTURE"
       objNetwork.RemoveNetworkDrive "J","true"
-      objNetwork.MapNetworkDrive "J:","\\asf\infrastructure","true"
+      objNetwork.MapNetworkDrive "J:","\\ad\infra","true"
 	Case "MANAGER"
       objNetwork.RemoveNetworkDrive "K","true"
-      objNetwork.MapNetworkDrive "K:","\\asf\manager","true"
+      objNetwork.MapNetworkDrive "K:","\\ad\manager","true"
 	Case "MARKETING"
       objNetwork.RemoveNetworkDrive "L","true"
-      objNetwork.MapNetworkDrive "L:","\\asf\marketing","true"
+      objNetwork.MapNetworkDrive "L:","\\ad\marketing","true"
   End Select
 Next	  
