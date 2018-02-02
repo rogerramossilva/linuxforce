@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Array com usuarios e grupos
+# Array com grupos de sistema
 all_groups=('infrastructure' 'security' 'public' 'manager' 'marketing' 'owner')
 
 for group in ${all_groups[@]}
