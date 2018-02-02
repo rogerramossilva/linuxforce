@@ -1,7 +1,7 @@
 On Error Resume Next
 set objNetwork= CreateObject("WScript.Network")
 objNetwork.MapNetworkDrive "P:", "\\asf\public"
-objNetwork.MapNetworkDrive "L:", "\\asf\lixeiras"
+objNetwork.MapNetworkDrive "N:", "\\asf\lixeiras"
 
 strDom = objNetwork.UserDomain
 strUser = objNetwork.UserName
