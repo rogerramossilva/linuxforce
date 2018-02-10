@@ -1,0 +1,23 @@
+Port 52020
+ListenAddress 192.168.1.20
+
+SyslogFacility AUTH
+
+LoginGraceTime 2m
+PermitRootLogin no
+AllowUsers analista
+StrictModes yes
+MaxAuthTries 3
+MaxSessions 2
+
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+
+UsePAM yes
+X11Forwarding no
+PrintMotd no
+Banner /etc/issue.net
+
+AcceptEnv LANG LC_*
+Subsystem	sftp	/usr/lib/openssh/sftp-server
+
