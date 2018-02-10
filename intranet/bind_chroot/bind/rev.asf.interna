@@ -1,0 +1,19 @@
+$TTL 7200 ; default para registros sem TTL
+;
+@	IN	SOA	ns1.asf.com.	analista.asf.com. (
+	2017122202 ; serial
+	8h ; refresh
+	1h ; retry
+	3d ; expire
+	3h ; negative caching TTL
+);
+;
+@	IN	NS	ns1.asf.com.
+@	IN	NS	ns2.asf.com.
+@	IN	A	192.168.1.10
+ns1	IN	A	192.168.1.10
+ns2	IN	A	192.168.1.20
+1	IN	PTR	gateway.asf.com.
+10	IN	PTR	intranet.asf.com.	
+20	IN	PTR	datacenter.asf.com.
+30	IN	PTR	storage.asf.com.

@@ -1,0 +1,10 @@
+options {
+  directory "/var/cache/bind";
+  version "not available";
+  dnssec-enable yes;
+  dnssec-validation auto;
+  allow-recursion { 127.0.0.1; 192.168.1.0/24; 10.0.0.0/24; };
+  allow-transfer { none; };
+  notify yes;
+  listen-on-v6 { any; };
+};

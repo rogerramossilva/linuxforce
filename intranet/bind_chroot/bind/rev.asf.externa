@@ -1,0 +1,17 @@
+$TTL 7200 ; default para registros sem TTL
+;
+@	IN	SOA	ns1.asf.com.	analista.asf.com. (
+	2017122202 ; serial
+	8h ; refresh
+	1h ; retry
+	3d ; expire
+	3h ; negative caching TTL
+);
+;
+@	IN	NS	ns1.asf.com.
+@	IN	NS	ns2.asf.com.
+@	IN	A	200.50.100.10
+ns1	IN	A	200.50.100.10
+ns2	IN	A	200.50.100.20
+10	IN	PTR	www.asf.com.
+20	IN	PTR	mail.asf.com.

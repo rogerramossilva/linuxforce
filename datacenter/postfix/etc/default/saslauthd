@@ -1,0 +1,5 @@
+START=yes
+MECHANISMS="pam"
+MECH_OPTIONS=""
+THREADS=5
+OPTIONS="-c -m /var/spool/postfix/var/run/saslauthd -r"
