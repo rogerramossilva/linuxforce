@@ -1,0 +1,14 @@
+127.0.0.1	localhost
+127.0.1.1	localhost.localdomain
+
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+
+192.168.1.1	gateway.asf.com		gateway
+192.168.1.10	intranet.asf.com	intranet
+192.168.1.20	datacenter.asf.com	datacenter
+192.168.1.30	storage.asf.com		storage
+192.168.1.40	ad.asf.com		ad
+192.168.1.100	interno.asf.com		interno
+
