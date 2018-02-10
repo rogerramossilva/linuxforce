@@ -7,6 +7,7 @@ ff02::2 ip6-allrouters
 
 192.168.1.1	gateway.asf.com		gateway
 192.168.1.10	intranet.asf.com	intranet
+192.168.1.11	express.asf.com		express
 192.168.1.20	datacenter.asf.com	datacenter
 192.168.1.30	storage.asf.com		storage
 192.168.1.40	ad.asf.com		ad
