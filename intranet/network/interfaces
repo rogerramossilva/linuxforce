@@ -1,0 +1,22 @@
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# Interface interna de rede
+auto enp0s3
+iface enp0s3 inet static
+	network		192.168.1.0
+	netmask		255.255.255.0
+	address		192.168.1.10
+	gateway		192.168.1.1
+	broadcast	192.168.1.255
+
+# Interface interna de rede
+auto enp0s8
+iface enp0s8 inet static
+	network		192.168.1.0
+	netmask		255.255.255.0
+	address		192.168.1.11
+	broadcast	192.168.1.255
