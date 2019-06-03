@@ -1,0 +1,46 @@
+# Banner para o SMTP
+smtpd_banner = MTA ASF Cybersecurity
+# Completa o dominio caso o MUA falhe na atribuicao
+append_dot_mydomain = yes
+# FQDN do MTA
+myhostname = datacenter.asf.com
+# Arquivos de mapeamento de alias
+alias_maps = hash:/etc/aliases
+alias_database = hash:/etc/aliases
+# Origem do MTA, por padrao o mesmo valor de /etc/mailname
+myorigin = asf.com
+# Nomes qualifcados para receber emails pelo dominio
+mydestination = asf.com, smtp.asf.com, pop.asf.com, imap.asf.com,mail.asf.com, webmail.asf.com, localhost
+# Para fazer relay para outros servidores
+relayhost =
+# Ips que poderao enviar emails pelo MTA
+mynetworks = 127.0.0.0/8 192.168.1.0/24
+# Tamanho limite de armazenamento de caixa local
+mailbox_size_limit = 0
+# Interfaces em estado listen para o MTA
+inet_interfaces = all
+# tamanho máximo de mensagens
+message_size_limit = 10000000
+# Sinal de redirecionamento para pastas do cliente
+recipient_delimiter = +
+# Diretorio padrao de armazenamento de informacoes
+home_mailbox = Maildir/
+# desabilita o comando vrfy
+disable_vrfy_command = yes
+# Confguracoes de SMTPD para sasl
+smtpd_sasl_local_domain =
+smtpd_sasl_auth_enable = yes
+smtpd_sasl_security_options = noanonymous
+smtpd_recipient_restrictions = permit_sasl_authenticated,permit_mynetworks, reject_unauth_destination
+smtpd_tls_auth_only = no
+# Confguracoes TLS
+smtp_use_tls = yes
+smtp_tls_note_starttls_ofer = yes
+smtpd_tls_CAfle = /etc/postfx/ssl/cacert.pem
+smtpd_tls_loglevel = 1
+smtpd_tls_received_header = yes
+smtpd_tls_session_cache_timeout = 3r600s
+smtpd_tls_cert_fle = /etc/postfx/ssl/smtpd.crt
+smtpd_tls_session_cache_database = btree:${queue_directory}/smtp_scache
+smtp_tls_session_cache_database = btree:${queue_directory}/smtp_scache
+tls_random_source = dev:/dev/urandom
