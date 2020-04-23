@@ -1,3 +1,5 @@
+#/bin/bash
+
 mkdir -p /var/bind9/chroot/{etc,dev,var/cache/bind,var/run/named}
 mv /etc/bind /var/bind9/chroot/etc
 mknod /var/bind9/chroot/dev/null c 1 3
