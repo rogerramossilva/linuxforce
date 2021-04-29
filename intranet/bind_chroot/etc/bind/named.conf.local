@@ -19,7 +19,7 @@ view "externa" {
 };
 view "interna" {
   match-clients { asf; any; };
-  zone "asf.com" {
+  zone "asf.local" {
     type master;
     file "db.asf.interna";
   };
