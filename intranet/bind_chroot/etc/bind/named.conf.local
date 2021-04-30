@@ -23,6 +23,10 @@ view "interna" {
     type master;
     file "db.asf.interna";
   };
+  zone "asf.com" {
+    type master;  
+    file "db.asf.com";
+  };
   zone 1.168.192.in-addr.arpa {
     type master;
     file "rev.asf.interna";
