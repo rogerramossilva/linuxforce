@@ -10,21 +10,12 @@ $TTL 7200 ; default para registros sem TTL
 ;
 @		IN	NS	ns1.asf.local.
 @		IN	NS	ns2.asf.local.
-@		IN	MX	10 mail.asf.local.
 @		IN	A	192.168.1.40
 ns1		IN	A	192.168.1.10
 ns2		IN	A	192.168.1.20
-www		IN	A	192.168.1.40
-ftp		IN	CNAME	www
-mail		IN	A	192.168.1.20
-smtp		IN	CNAME	mail
-pop		IN	CNAME	mail
-imap		IN	CNAME	mail
-webmail		IN	CNAME	mail
 gateway		IN	A	192.168.1.1
 intranet	IN	A	192.168.1.10
 datacenter	IN	A	192.168.1.20
 storage		IN	A	192.168.1.30
 interno		IN	A	192.168.1.100
 ad		IN	A	192.168.1.40
-git		IN	CNAME	intranet
