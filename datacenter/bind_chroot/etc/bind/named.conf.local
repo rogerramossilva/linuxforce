@@ -26,6 +26,11 @@ view "interna" {
     file "db.asf.interna";
     masters { 192.168.1.10; };
   };
+  zone "asf.com" {
+    type slave;
+    file "db.asf.com";
+    masters { 192.168.1.10; };
+  };
   zone 1.168.192.in-addr.arpa {
     type slave;
     file "rev.asf.interna";
