@@ -8,9 +8,9 @@ $TTL 7200 ; default para registros sem TTL
 	3h ; negative caching TTL
 );
 ;
-@		IN	NS	ns1.asf.com.
-@		IN	NS	ns2.asf.com.
-@		IN	MX	10 mail.asf.com.
+@		IN	NS	ns1.asf.local.
+@		IN	NS	ns2.asf.local.
+@		IN	MX	10 mail.asf.local.
 @		IN	A	192.168.1.40
 ns1		IN	A	192.168.1.10
 ns2		IN	A	192.168.1.20
