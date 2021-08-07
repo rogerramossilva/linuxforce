@@ -21,3 +21,9 @@ smtp		IN	CNAME	mail
 pop			IN	CNAME	mail
 imap		IN	CNAME	mail
 webmail		IN	CNAME	mail
+gateway		IN	A	192.168.1.1
+intranet	IN	A	192.168.1.10
+datacenter	IN	A	192.168.1.20
+storage		IN	A	192.168.1.30
+interno		IN	A	192.168.1.100
+ad		IN	A	192.168.1.40
