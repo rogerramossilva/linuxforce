@@ -21,14 +21,9 @@ view "externa" {
 };
 view "interna" {
   match-clients { asf; any; };
-  zone "asf.local" {
-    type slave;
-    file "db.asf.interna";
-    masters { 192.168.1.10; };
-  };
   zone "asf.com" {
     type slave;
-    file "db.asf.com";
+    file "db.asf.interna";
     masters { 192.168.1.10; };
   };
   zone 1.168.192.in-addr.arpa {
