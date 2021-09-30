@@ -19,13 +19,9 @@ view "externa" {
 };
 view "interna" {
   match-clients { asf; any; };
-  zone "asf.local" {
+  zone "asf.com" {
     type master;
     file "db.asf.interna";
-  };
-  zone "asf.com" {
-    type master;  
-    file "db.asf.com";
   };
   zone 1.168.192.in-addr.arpa {
     type master;
