@@ -1,6 +1,6 @@
 $TTL 7200 ; default para registros sem TTL
 ;
-@	IN	SOA	ns1.asf.local.	analista.asf.local. (
+@	IN	SOA	ns1.asf.com.	analista.asf.com. (
 	2021042901 ; serial
 	8h ; refresh
 	1h ; retry
@@ -8,14 +8,14 @@ $TTL 7200 ; default para registros sem TTL
 	3h ; negative caching TTL
 );
 ;
-@	IN	NS	ns1.asf.local.
-@	IN	NS	ns2.asf.local.
+@	IN	NS	ns1.asf.com.
+@	IN	NS	ns2.asf.com.
 @	IN	A	192.168.1.40
 ns1	IN	A	192.168.1.10
 ns2	IN	A	192.168.1.20
-1	IN	PTR	gateway.asf.local.
-10	IN	PTR	intranet.asf.local.	
-20	IN	PTR	datacenter.asf.local.
-30	IN	PTR	storage.asf.local.
-100	IN	PTR	interno.asf.local.
-40	IN	PTR	ad.asf.local.
+1	IN	PTR	gateway.asf.com.
+10	IN	PTR	intranet.asf.com.	
+20	IN	PTR	datacenter.asf.com.
+30	IN	PTR	storage.asf.com.
+100	IN	PTR	interno.asf.com.
+40	IN	PTR	ad.asf.com.
