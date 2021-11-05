@@ -3,7 +3,7 @@
 # Variavel com listagem de usuarios inseridos no Samba
 list="$(samba-tool user list | egrep -v 'Administrator|Guest|krbtgt')"
 
-for users in $list
+for LSUSER in $list
     do 
         # Variavel com listagem de SIDS de usarios do AD
         sid="$(wbinfo -n $LSUSER | awk -F" " '{print $1}')"
