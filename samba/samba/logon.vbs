@@ -24,5 +24,8 @@ For Each objGroup In objUser.Groups
 	Case "MARKETING"
       objNetwork.RemoveNetworkDrive "L","true"
       objNetwork.MapNetworkDrive "L:","\\ad\marketing","true"
+	Case "DEVEL"
+      objNetwork.RemoveNetworkDrive "N","true"
+      objNetwork.MapNetworkDrive "N:","\\ad\devel","true"	
   End Select
 Next	  
