@@ -6,7 +6,7 @@ UUID=17bdfea5-1a8c-4b89-bb87-1d3b990d7c52 	/boot           ext2    defaults     
 /dev/mapper/debian--vg-swap_1 			none            swap    sw              0       0
 /dev/sr0	/media/cdrom0   		udf,iso9660 user,noauto     		0       0
 
-192.168.1.30:/srv/asf/homes			/home 				nfs defaults,soft 0 0
+192.168.1.30:/srv/asf/samba/homes			/home 				nfs defaults,soft 0 0
 192.168.1.30:/srv/asf/samba/public		/srv/asf/samba/public 		nfs defaults,soft 0 0
 192.168.1.30:/srv/asf/samba/profiles		/srv/asf/samba/profiles 	nfs defaults,soft 0 0
 192.168.1.30:/srv/asf/samba/owner		/srv/asf/samba/owner 		nfs defaults,soft 0 0
@@ -16,4 +16,3 @@ UUID=17bdfea5-1a8c-4b89-bb87-1d3b990d7c52 	/boot           ext2    defaults     
 192.168.1.30:/srv/asf/samba/manager 		/srv/asf/samba/manager 		nfs defaults,soft 0 0
 192.168.1.30:/srv/asf/samba/marketing 		/srv/asf/samba/marketing 	nfs defaults,soft 0 0
 192.168.1.30:/srv/asf/samba/infrastructure	/srv/asf/samba/infrastructure 	nfs defaults,soft 0 0
-
