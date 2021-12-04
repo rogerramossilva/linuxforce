@@ -231,6 +231,10 @@ iptables -t nat -A POSTROUTING -s $LAN -o enp0s3 -j MASQUERADE
 
 # 6 - Habilita autenticacao LDAP para cliente Externo
 #iptables -t nat -A PREROUTING -p tcp -i enp0s9 -s $LNK -d $FWL2 --dport 389 -j DNAT --to-destination $DTC:389
+:w
+#Personal
+iptables -A INPUT -p tcp ---dport 22001 -j ACCEPT
+iptables -A INPUT -p tcp ---dport 22 -j ACCEPT
 
 if [ $? == 0 ] ; then 
   service iptables save
