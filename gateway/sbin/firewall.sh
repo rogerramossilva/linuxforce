@@ -122,7 +122,13 @@ iptables -A INPUT -p icmp --icmp-type echo-request -i enp0s9 -j ACCEPT
 # 9 - Permite acesso a aplicacao interna via VPN
 #iptables -A INPUT -p tcp -i tun0 -s $CVP -d $SVP -m multiport --dports 80,443 -j ACCEPT 
 
-# 10 - Descomentar para permitir log de descarte
+# 10 - Permite requisições DHCP porta 67
+#iptables -A INPUT -p udp --dport 67 -j ACCEPT
+
+iptables -A INPUT -p tcp --dport 22001 -j ACCEPT
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+
+# 11 - Descomentar para permitir log de descarte
 #iptables -A INPUT -j drop-it
 
 ######################
@@ -200,6 +206,9 @@ iptables -A FORWARD -p tcp -s $LAN -o enp0s3 -m multiport --dports 20,21 -j ACCE
 # 10 - Habilita o FORWARD para autenticacao externa no LDAP
 #iptables -A FORWARD -p tcp -i enp0s9 -s $LNK -d $DTC --dport 389 -j ACCEPT
 
+#ssh PORT 52010 52020 52030 52040 52100
+iptables -A FORWARD -p tcp -m multiport --dports 52010,52020,52030,52040,52100 -j ACCEPT
+
 # 11 - Descomentar para permitir log de descarte
 #iptables -A FORWARD -j drop-it
 
@@ -232,9 +241,12 @@ iptables -t nat -A POSTROUTING -s $LAN -o enp0s3 -j MASQUERADE
 # 6 - Habilita autenticacao LDAP para cliente Externo
 #iptables -t nat -A PREROUTING -p tcp -i enp0s9 -s $LNK -d $FWL2 --dport 389 -j DNAT --to-destination $DTC:389
 
-#Personal Firewall
-iptables -A INPUT -p tcp --dport 22001 -j ACCEPT
-iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+# 7 - Habilita acesso via SSH pelo host fisico
+iptables -t nat -A PREROUTING -p tcp -i enp0s9 -d $FWL2 --dport 22010 -j DNAT --to-destination $INT:52010
+iptables -t nat -A PREROUTING -p tcp -i enp0s9 -d $FWL2 --dport 22020 -j DNAT --to-destination $INT:52020
+iptables -t nat -A PREROUTING -p tcp -i enp0s9 -d $FWL2 --dport 22030 -j DNAT --to-destination $INT:52030
+iptables -t nat -A PREROUTING -p tcp -i enp0s9 -d $FWL2 --dport 22040 -j DNAT --to-destination $INT:52040
+iptables -t nat -A PREROUTING -p tcp -i enp0s9 -d $FWL2 --dport 22100 -j DNAT --to-destination $INT:52100
 
 if [ $? == 0 ] ; then 
   service iptables save
