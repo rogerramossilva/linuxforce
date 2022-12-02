@@ -107,7 +107,6 @@ iptables -A INPUT -p icmp --icmp-type echo-request -i enp0s9 -j ACCEPT
 iptables -A INPUT -p tcp --dport 52001 -j ACCEPT
 iptables -A INPUT -p tcp --dport 22 -j ACCEPT
 
-
 # 5 - Habilita o INPUT do NTP para clientes Internos e Externo
 #iptables -A INPUT -p udp -i enp0s8 -s $LAN -d $GTW --dport 123 -j ACCEPT
 #iptables -A INPUT -p udp -i enp0s9 -s $EXT -d $FWL1 --dport 123 -j ACCEPT
@@ -126,10 +125,6 @@ iptables -A INPUT -p tcp --dport 22 -j ACCEPT
 
 # 10 - Permite requisições DHCP porta 67
 iptables -A INPUT -p udp --dport 67 -j ACCEPT
-
-iptables -A INPUT -p tcp --dport 52001 -j ACCEPT
-iptables -A INPUT -p tcp --dport 22 -j ACCEPT
-
 
 # 11 - Descomentar para permitir log de descarte
 #iptables -A INPUT -j drop-it
@@ -245,11 +240,11 @@ iptables -t nat -A POSTROUTING -s $LAN -o enp0s3 -j MASQUERADE
 #iptables -t nat -A PREROUTING -p tcp -i enp0s9 -s $LNK -d $FWL2 --dport 389 -j DNAT --to-destination $DTC:389
 
 # 7 - Habilita acesso via SSH pelo host fisico
-iptables -t nat -A PREROUTING -p tcp -i enp0s9 -d $FWL2 --dport 22010 -j DNAT --to-destination $INT:52010
-iptables -t nat -A PREROUTING -p tcp -i enp0s9 -d $FWL2 --dport 22020 -j DNAT --to-destination $DTC:52020
-iptables -t nat -A PREROUTING -p tcp -i enp0s9 -d $FWL2 --dport 22030 -j DNAT --to-destination $STG:52030
-iptables -t nat -A PREROUTING -p tcp -i enp0s9 -d $FWL2 --dport 22040 -j DNAT --to-destination $AD:52040
-iptables -t nat -A PREROUTING -p tcp -i enp0s9 -d $FWL2 --dport 22100 -j DNAT --to-destination $INT:52100
+iptables -t nat -A PREROUTING -p tcp -i enp0s9 -d $FWL1 --dport 52010 -j DNAT --to-destination $INT:52010
+iptables -t nat -A PREROUTING -p tcp -i enp0s9 -d $FWL1 --dport 52020 -j DNAT --to-destination $DTC:52020
+iptables -t nat -A PREROUTING -p tcp -i enp0s9 -d $FWL1 --dport 52030 -j DNAT --to-destination $STG:52030
+iptables -t nat -A PREROUTING -p tcp -i enp0s9 -d $FWL1 --dport 52040 -j DNAT --to-destination $AD:52040
+iptables -t nat -A PREROUTING -p tcp -i enp0s9 -d $FWL1 --dport 52100 -j DNAT --to-destination $INT:52100
 
 if [ $? == 0 ] ; then 
   service iptables save
