@@ -1,7 +1,6 @@
 TYPE=Ethernet
 BOOTPROTO=static
 NAME=enp0s9
-DOMAIN=asf.com
 DEVICE=enp0s9
 ONBOOT=yes
 IPADDR1=200.50.100.10
