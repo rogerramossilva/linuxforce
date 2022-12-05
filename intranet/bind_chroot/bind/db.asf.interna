@@ -1,7 +1,7 @@
 $TTL 7200 ; default para registros sem TTL
 ;
 @	IN	SOA	ns1.asf.com.	analista.asf.com. (
-	2021042901 ; serial
+	2022010101 ; serial
 	8h ; refresh
 	1h ; retry
 	3d ; expire
@@ -14,16 +14,17 @@ $TTL 7200 ; default para registros sem TTL
 @			IN	A		192.168.1.40
 ns1			IN	A		192.168.1.10
 ns2			IN	A		192.168.1.20
-www			IN	A		192.168.1.40
-ftp			IN	CNAME	www
-mail		IN	A		192.168.1.20
-smtp		IN	CNAME	mail
-pop			IN	CNAME	mail
-imap		IN	CNAME	mail
-webmail		IN	CNAME	mail
-gateway		IN	A	192.168.1.1
-intranet	IN	A	192.168.1.10
-datacenter	IN	A	192.168.1.20
-storage		IN	A	192.168.1.30
-interno		IN	A	192.168.1.100
-ad		IN	A	192.168.1.40
+www			IN	A		192.168.1.30
+ftp			IN	CNAME		www
+mail			IN	A		192.168.1.20
+smtp			IN	CNAME		mail
+pop			IN	CNAME		mail
+imap			IN	CNAME		mail
+webmail			IN	CNAME		mail
+gateway			IN	A		192.168.1.1
+intranet		IN	A		192.168.1.10
+datacenter		IN	A		192.168.1.20
+storage			IN	A		192.168.1.30
+interno			IN	A		192.168.1.100
+ad			IN	A		192.168.1.40
+express			IN	A		192.168.1.10

@@ -1,8 +1,8 @@
 view "all" {
-	match-clients { none; };
+	match-clients { any; };
   zone "." {
 	type hint;
-	file "/etc/bind/db.root";
+	file "root.hints";
   };
   zone "localhost" {
 	type master;

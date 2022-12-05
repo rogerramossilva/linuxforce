@@ -1,7 +1,7 @@
 $TTL 7200 ; default para registros sem TTL
 ;
 @	IN	SOA	ns1.asf.com.	analista.asf.com. (
-	2017122202 ; serial
+	2022010101 ; serial
 	8h ; refresh
 	1h ; retry
 	3d ; expire

@@ -1,13 +1,21 @@
 include "/etc/bind/rndc.key";
+
 controls { 
   inet 127.0.0.1 port 953 allow { localhost; } keys { "rndc-key"; };
 };
-acl "asf" {
+
+acl "redeinterna" {
   192.168.1.0/24;
   10.0.0.0/24;
+  127.0.0.1;
 };
+
+acl "redeexterna" {
+  200.50.100.0/24;
+};
+
 view "externa" {
-  match-clients { !asf; any; };
+  match-clients { redeexterna; };
   zone "asf.com" {
     type master;
     file "db.asf.externa";
@@ -17,8 +25,9 @@ view "externa" {
     file "rev.asf.externa";
   };
 };
+
 view "interna" {
-  match-clients { asf; any; };
+  match-clients { redeinterna; };
   zone "asf.com" {
     type master;
     file "db.asf.interna";

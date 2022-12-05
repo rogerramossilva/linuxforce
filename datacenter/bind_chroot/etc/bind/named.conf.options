@@ -3,10 +3,8 @@ options {
   version "not available";
   dnssec-enable yes;
   dnssec-validation auto;
-  allow-recursion { 127.0.0.1; 192.168.1.0/24; 10.0.0.0/24; };
   allow-query { 200.50.100.0/24; 192.168.1.0/24; 10.0.0.0/24; 127.0.0.1; };
+  allow-recursion { 127.0.0.1; 192.168.1.0/24; 10.0.0.0/24; };
   forwarders { 8.8.8.8; };
-  allow-transfer { key TRANSFER; };
-  notify yes;
   listen-on-v6 { any; };
 };
