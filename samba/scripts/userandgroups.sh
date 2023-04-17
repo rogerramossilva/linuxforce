@@ -7,7 +7,7 @@ for group in ${all_groups[@]}; do
 done
 
 # Array com Users de sistema
-all_users=('gideon.goddard' 'elliot.alderson' 'lloyd.chung' 'angela.moss' 'ollie.parker'
+all_users=('gideon.goddard' 'elliot.alderson' 'lloyd.chung' 'angela.moss' 'ollie.parker')
 for users in ${all_users[@]}; do
 	useradd -m -k /etc/skel -d /srv/asf/samba/homes/$users -s /bin/bash  $users      
 done
