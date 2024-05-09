@@ -184,7 +184,7 @@ iptables -t nat -A PREROUTING -p tcp -i enp0s9 -d $FWL1 --dport 52010 -j DNAT --
 iptables -t nat -A PREROUTING -p tcp -i enp0s9 -d $FWL1 --dport 52020 -j DNAT --to-destination $DTC:52020
 iptables -t nat -A PREROUTING -p tcp -i enp0s9 -d $FWL1 --dport 52030 -j DNAT --to-destination $STG:52030
 iptables -t nat -A PREROUTING -p tcp -i enp0s9 -d $FWL1 --dport 52040 -j DNAT --to-destination $AD:52040
-iptables -t nat -A PREROUTING -p tcp -i enp0s9 -d $FWL1 --dport 52100 -j DNAT --to-destination $INT:52100
+iptables -t nat -A PREROUTING -p tcp -i enp0s9 -d $FWL1 --dport 52100 -j DNAT --to-destination $CLI:52100
 
 if [ $? == 0 ] ; then 
   service iptables save
