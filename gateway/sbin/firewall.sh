@@ -59,6 +59,7 @@ iptables -A INPUT -p icmp --icmp-type echo-request -i enp0s9 -j ACCEPT
 # 4 - Habilita o SSH do node Cliente Interno e Externo
 iptables -A INPUT -p tcp --dport 52001 -j ACCEPT
 iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+iptables -A INPUT -p tcp --dport 22222 -j ACCEPT
 
 # 5 - Habilita o INPUT do NTP para clientes Internos e Externo
 #iptables -A INPUT -p udp -i enp0s8 -s $LAN -d $GTW --dport 123 -j ACCEPT
