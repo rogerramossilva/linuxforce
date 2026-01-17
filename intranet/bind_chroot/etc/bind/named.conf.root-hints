@@ -1,0 +1,9 @@
+view "all" {
+  match-clients { any; };
+
+  zone "." {
+        type hint;
+        file "root.hints";
+  };
+
+};
