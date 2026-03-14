@@ -42,6 +42,13 @@ iptables -X
 # Zera os contadores do iptables
 iptables -Z
 
+#VPN#
+#iptables -A INPUT -i tun0 -j ACCEPT
+#iptables -A OUTPUT -o tun0 -j ACCEPT
+#iptables -A FORWARD -i tun0 -j ACCEPT
+#iptables -A FORWARD -o tun0 -j ACCEPT
+
+
 #####################
 ### INPUT SESSION ###
 #####################
@@ -180,12 +187,6 @@ iptables -t nat -A POSTROUTING -s $LAN -o enp0s3 -j MASQUERADE
 # 6 - Habilita autenticacao LDAP para cliente Externo
 #iptables -t nat -A PREROUTING -p tcp -i enp0s9 -s $LNK -d $FWL2 --dport 389 -j DNAT --to-destination $DTC:389
 
-# 7 - Habilita acesso via SSH pelo host fisico
-iptables -t nat -A PREROUTING -p tcp -i enp0s9 -d $FWL1 --dport 52010 -j DNAT --to-destination $INT:52010
-iptables -t nat -A PREROUTING -p tcp -i enp0s9 -d $FWL1 --dport 52020 -j DNAT --to-destination $DTC:52020
-iptables -t nat -A PREROUTING -p tcp -i enp0s9 -d $FWL1 --dport 52030 -j DNAT --to-destination $STG:52030
-iptables -t nat -A PREROUTING -p tcp -i enp0s9 -d $FWL1 --dport 52040 -j DNAT --to-destination $AD:52040
-iptables -t nat -A PREROUTING -p tcp -i enp0s9 -d $FWL1 --dport 52100 -j DNAT --to-destination $CLI:52100
 
 if [ $? == 0 ] ; then 
   service iptables save
