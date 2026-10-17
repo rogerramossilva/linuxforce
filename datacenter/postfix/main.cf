@@ -6,6 +6,7 @@ append_dot_mydomain = yes
 
 # FQDN do MTA
 myhostname = datacenter.asf.com
+mydomain = asf.com
 
 # Arquivos de mapeamento de alias
 alias_maps = hash:/etc/aliases
@@ -46,7 +47,7 @@ smtpd_sasl_type = dovecot
 smtpd_sasl_path = private/auth
 smtpd_sasl_auth_enable = yes
 smtpd_sasl_security_options = noanonymous
-smtpd_sasl_local_domain = $myhostname
+smtpd_sasl_local_domain = $mydomain
 smtpd_recipient_restrictions = 
   permit_mynetworks,
   permit_sasl_authenticated,
