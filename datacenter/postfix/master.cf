@@ -16,11 +16,11 @@ smtp      inet  n       -       y       -       -       smtpd
 #tlsproxy  unix  -       -       y       -       0       tlsproxy
 # Choose one: enable submission for loopback clients only, or for any client.
 #127.0.0.1:submission inet n -   y       -       -       smtpd
-#submission inet n       -       y       -       -       smtpd
-#  -o syslog_name=postfix/submission
+submission inet n       -       y       -       -       smtpd
+  -o syslog_name=postfix/submission
 #  -o smtpd_forbid_unauth_pipelining=no
 #  -o smtpd_tls_security_level=encrypt
-#  -o smtpd_sasl_auth_enable=yes
+  -o smtpd_sasl_auth_enable=yes
 #  -o smtpd_tls_auth_only=yes
 #  -o local_header_rewrite_clients=static:all
 #  -o smtpd_hide_client_session=yes
@@ -37,11 +37,11 @@ smtp      inet  n       -       y       -       -       smtpd
 #  -o milter_macro_daemon_name=ORIGINATING
 # Choose one: enable submissions for loopback clients only, or for any client.
 #127.0.0.1:submissions inet n  -       y       -       -       smtpd
-submissions     inet  n       -       y       -       -       smtpd
-  -o syslog_name=postfix/submissions
+#submissions     inet  n       -       y       -       -       smtpd
+#  -o syslog_name=postfix/submissions
 #  -o smtpd_forbid_unauth_pipelining=no
 #  -o smtpd_tls_wrappermode=yes
-  -o smtpd_sasl_auth_enable=yes
+#  -o smtpd_sasl_auth_enable=yes
 #  -o local_header_rewrite_clients=static:all
 #  -o smtpd_hide_client_session=yes
 #  -o smtpd_reject_unlisted_recipient=no
