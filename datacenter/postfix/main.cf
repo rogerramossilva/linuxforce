@@ -42,19 +42,27 @@ home_mailbox = Maildir/
 disable_vrfy_command = yes
 
 # Configuracoes de SMTPD para sasl
-smtpd_sasl_local_domain =
+smtpd_sasl_type = dovecot
+smtpd_sasl_path = private/auth
 smtpd_sasl_auth_enable = yes
 smtpd_sasl_security_options = noanonymous
-smtpd_recipient_restrictions = permit_sasl_authenticated, permit_mynetworks, reject_unauth_destination
+smtpd_sasl_local_domain = $myhostname
+smtpd_recipient_restrictions = 
+  permit_mynetworks,
+  permit_sasl_authenticated,
+  reject_unauth_destination
+
 
 # Configuracoes TLS
+smtpd_tls_security_level = may
 smtpd_tls_auth_only = no
 smtp_use_tls = yes
+
 #Descobrindo servidores que suportam TLS
 smtp_tls_note_starttls_offer = yes
-smtpd_tls_CAfile = /etc/postfix/ssl/cacert.pem
 smtpd_tls_loglevel = 1
 smtpd_tls_received_header = yes
+
 #Cache de sessão TLS do lado do cliente
 smtpd_tls_session_cache_timeout = 3600s
 smtpd_tls_cert_file = /etc/postfix/ssl/webmail.crt
